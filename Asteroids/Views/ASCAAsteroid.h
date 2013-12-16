@@ -10,4 +10,5 @@
 
 @interface ASCAAsteroid : CALayer
 @property (nonatomic, assign) int corners;
+@property (nonatomic, assign) BOOL isBigAsteroid;
 @end

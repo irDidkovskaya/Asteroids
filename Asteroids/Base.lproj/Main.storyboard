@@ -31,10 +31,10 @@
                                     <segue destination="pZZ-eQ-5Zd" kind="modal" modalTransitionStyle="crossDissolve" id="rcP-9M-eXI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSa-Ce-sq1">
-                                <rect key="frame" x="20" y="20" width="72" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSa-Ce-sq1">
+                                <rect key="frame" x="222" y="198" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="best result">
+                                <state key="normal" title="High Scores">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -44,7 +44,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TSa-Ce-sq1" firstAttribute="top" secondItem="W5R-wZ-orm" secondAttribute="bottom" constant="8" symbolic="YES" id="6JN-RG-YFE"/>
                             <constraint firstItem="W5R-wZ-orm" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="Z9R-Gz-Hk5"/>
+                            <constraint firstItem="TSa-Ce-sq1" firstAttribute="leading" secondItem="W5R-wZ-orm" secondAttribute="leading" id="bzY-mk-0LY"/>
+                            <constraint firstItem="TSa-Ce-sq1" firstAttribute="trailing" secondItem="W5R-wZ-orm" secondAttribute="trailing" id="e3S-Zt-9UD"/>
                             <constraint firstItem="W5R-wZ-orm" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kMd-bq-v4p"/>
                             <constraint firstItem="W5R-wZ-orm" firstAttribute="top" secondItem="5c8-t5-xgz" secondAttribute="bottom" constant="110" id="u9e-on-Cru"/>
                         </constraints>
@@ -81,7 +84,7 @@
                                     <action selector="showMenu:" destination="pZZ-eQ-5Zd" eventType="touchUpInside" id="Yi0-se-c3r"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jck-ha-dGU">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jck-ha-dGU">
                                 <rect key="frame" x="306" y="23" width="200" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -162,7 +165,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="imB-ZL-8IS"/>
                                         </constraints>
-                                        <state key="normal" title="Quite">
+                                        <state key="normal" title="Quit">
                                             <color key="titleColor" red="0.079731602822580641" green="0.75793850806451613" blue="1" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>

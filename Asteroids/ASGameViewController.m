@@ -100,23 +100,18 @@
 
     for (ASCAAsteroid *asteroid in self.asteroids) {
         
-
         if ((self.spaceship.frame.origin.x >= [asteroid.presentationLayer frame].origin.x && self.spaceship.frame.origin.x <= [asteroid.presentationLayer frame].origin.x + [asteroid.presentationLayer frame].size.width) && (self.spaceship.frame.origin.y >= [asteroid.presentationLayer frame].origin.y && self.spaceship.frame.origin.y <= [asteroid.presentationLayer frame].origin.y + [asteroid.presentationLayer frame].size.height))
         {
             self.spaceship.hidden = YES;
             [self gameOver:YES];
         }
         
-        
-        
         for (SACABullet *bullet in self.bullets) {
-            
             
             if (([bullet.presentationLayer frame].origin.x >= [asteroid.presentationLayer frame].origin.x && [bullet.presentationLayer frame].origin.x <= [asteroid.presentationLayer frame].origin.x + [asteroid.presentationLayer frame].size.width) && ([bullet.presentationLayer frame].origin.y >= [asteroid.presentationLayer frame].origin.y && [bullet.presentationLayer frame].origin.y <= [asteroid.presentationLayer frame].origin.y + [asteroid.presentationLayer frame].size.height))
             {
-                 NSLog(@"!!!!Collision");
                 NSLog(@"Collision");
-                if (!asteroid.doubleSided) {
+                if (asteroid.isBigAsteroid) {
                     [self addAsteroids:(2 + arc4random() % (4 - 2 + 1)) fromPoint:[asteroid.presentationLayer frame].origin];
                 }
                 [asteroid removeFromSuperlayer];
@@ -124,7 +119,6 @@
                 break;
 
             }
-
             
         }
         
@@ -149,10 +143,12 @@
         asteroid.position = CGPointMake(screenBounds.size.height+50, screenBounds.size.width+50);
         asteroid.corners = 4 + arc4random() % (8 - 4 + 1);
         asteroid.opacity = 0;
+        asteroid.isBigAsteroid = YES;
         asteroid.bounds = CGRectMake(0, 0, 40 + arc4random() % (60 - 40 + 1), 40 + arc4random() % (60 - 40 + 1));
-        asteroid.doubleSided = NO;
+//        asteroid.doubleSided = NO;
         if (asteroidsNum > 1)
         {
+            asteroid.isBigAsteroid = NO;
             asteroid.bounds = CGRectMake(0, 0, 40/asteroidsNum + arc4random() % (60/asteroidsNum - 40/asteroidsNum + 1), 40/asteroidsNum + arc4random() % (60/asteroidsNum - 40/asteroidsNum + 1));
             asteroid.doubleSided = YES;
         }
