@@ -102,6 +102,7 @@
         
         if ((self.spaceship.frame.origin.x >= [asteroid.presentationLayer frame].origin.x && self.spaceship.frame.origin.x <= [asteroid.presentationLayer frame].origin.x + [asteroid.presentationLayer frame].size.width) && (self.spaceship.frame.origin.y >= [asteroid.presentationLayer frame].origin.y && self.spaceship.frame.origin.y <= [asteroid.presentationLayer frame].origin.y + [asteroid.presentationLayer frame].size.height))
         {
+            //asteroid crash spaceship
             self.spaceship.hidden = YES;
             [self gameOver:YES];
         }
@@ -111,6 +112,7 @@
             if (([bullet.presentationLayer frame].origin.x >= [asteroid.presentationLayer frame].origin.x && [bullet.presentationLayer frame].origin.x <= [asteroid.presentationLayer frame].origin.x + [asteroid.presentationLayer frame].size.width) && ([bullet.presentationLayer frame].origin.y >= [asteroid.presentationLayer frame].origin.y && [bullet.presentationLayer frame].origin.y <= [asteroid.presentationLayer frame].origin.y + [asteroid.presentationLayer frame].size.height))
             {
                 NSLog(@"Collision");
+                //bullet hits an asterod
                 if (asteroid.isBigAsteroid) {
                     [self addAsteroids:(2 + arc4random() % (4 - 2 + 1)) fromPoint:[asteroid.presentationLayer frame].origin];
                 }
@@ -145,7 +147,6 @@
         asteroid.opacity = 0;
         asteroid.isBigAsteroid = YES;
         asteroid.bounds = CGRectMake(0, 0, 40 + arc4random() % (60 - 40 + 1), 40 + arc4random() % (60 - 40 + 1));
-//        asteroid.doubleSided = NO;
         if (asteroidsNum > 1)
         {
             asteroid.isBigAsteroid = NO;
@@ -318,7 +319,6 @@
     self.attacButton.enabled = YES;
     self.spaceship.hidden = NO;
     self.spaceship.frame = CGRectMake(20, self.view.center.x, 51, 48);
-    //    [self.view addSubview:self.spaceship];
     [self.spaceship updateConstraints];
     [self.view updateConstraints];
     scoreTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateScore) userInfo:nil repeats:YES];

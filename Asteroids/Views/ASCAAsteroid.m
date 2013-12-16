@@ -18,9 +18,8 @@
     return self;
 }
 
-- (NSArray *)randomNumbers:(NSArray *)array
+- (NSArray *)chooseRandomNumbersFromPointsArray:(NSArray *)array
 {
-    
     NSMutableArray *indexes = [[NSMutableArray alloc] initWithCapacity:self.corners];
     for (int i=0; i<MAX_CORNERS; i++)
         [indexes addObject:[NSNumber numberWithInt:i]];
@@ -46,6 +45,7 @@
     
     float widthAst = self.bounds.size.width;
     float heightAst = self.bounds.size.height;
+    //points to create 8 polygons
     NSValue *vaue = [NSValue valueWithCGPoint:CGPointMake(widthAst/2+0, widthAst/2+heightAst/2)];
     NSValue *vaue1 = [NSValue valueWithCGPoint:CGPointMake(widthAst/2+widthAst/2-widthAst/8, heightAst/2+heightAst/2-widthAst/8)];
     NSValue *vaue2 = [NSValue valueWithCGPoint:CGPointMake(widthAst/2+widthAst/2, heightAst/2+0)];
@@ -58,12 +58,11 @@
     
     
     NSArray *arr = [NSArray arrayWithObjects:vaue, vaue1, vaue2, vaue3, vaue4, vaue5, vaue6, vaue7, vaue8, nil];
-    
-    
+
     CGPoint points[8] = {};
     
-    NSArray *sorted = [self randomNumbers:arr];
-    
+// choose random sorted clockWise Points to create random corners asteroid
+    NSArray *sorted = [self chooseRandomNumbersFromPointsArray:arr];
     
     for (int i = 0; i < sorted.count; i++) {
         
