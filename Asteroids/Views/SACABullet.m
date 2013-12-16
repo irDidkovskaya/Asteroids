@@ -13,11 +13,8 @@
 - (id)initWithLayer:(id)layer {
     self = [super initWithLayer:layer];
     
-    self.bounds = CGRectMake(0, 0, 5, 5);
-    //    self.position = CGPointMake(10, 10);
+        self.bounds = CGRectMake(0, 0, 5, 5);
         self.cornerRadius = 2;
-    //    self.borderColor = [UIColor redColor].CGColor;
-    //    self.borderWidth = 1.5;
         self.backgroundColor = [UIColor whiteColor].CGColor;
     
     return self;

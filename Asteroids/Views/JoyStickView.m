@@ -16,7 +16,6 @@
 {
     imgStickNormal = [UIImage imageNamed:@"stick_normal.png"];
     imgStickHold = [UIImage imageNamed:@"stick_hold.png"];
-//    stickView.image = imgStickNormal;
     mCenter.x = imgStickNormal.size.width/2;
     mCenter.y = self.frame.size.height - imgStickNormal.size.height/2;
 }
@@ -25,7 +24,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         [self initStick];
     }
     return self;
@@ -37,21 +35,11 @@
     self = [super initWithCoder:coder];
     if (self)
 	{
-        // Initialization code
         [self initStick];
     }
 	
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 - (void)notifyDir:(CGPoint)dir
 {
@@ -106,10 +94,7 @@
         dtarget.y = dir.y * STICK_CENTER_TARGET_POS_LEN;
     }
     [self stickMoveTo:dtarget];
-    
-    NSLog(@"point = %@", NSStringFromCGPoint(dir));
-    
-    
+
     [self notifyDir:dir];
 }
 

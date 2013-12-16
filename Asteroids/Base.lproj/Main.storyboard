@@ -88,6 +88,7 @@
                                     <constraint firstAttribute="width" constant="200" id="qdX-0r-pUF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="18c-qd-jCE" customClass="ASSpaceship">
@@ -137,6 +138,7 @@
                                         <rect key="frame" x="0.0" y="89" width="568" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnO-Xs-CFM">
@@ -147,6 +149,7 @@
                                             <constraint firstAttribute="height" constant="30" id="nBd-de-U0d"/>
                                         </constraints>
                                         <state key="normal" title="Retry">
+                                            <color key="titleColor" red="0.079731602822580641" green="0.75793850806451613" blue="1" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -160,6 +163,7 @@
                                             <constraint firstAttribute="width" constant="150" id="imB-ZL-8IS"/>
                                         </constraints>
                                         <state key="normal" title="Quite">
+                                            <color key="titleColor" red="0.079731602822580641" green="0.75793850806451613" blue="1" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -173,6 +177,7 @@
                                             <constraint firstAttribute="width" constant="150" id="0a7-rN-lav"/>
                                         </constraints>
                                         <state key="normal" title="Back">
+                                            <color key="titleColor" red="0.079731602822580641" green="0.75793850806451613" blue="1" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>

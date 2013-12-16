@@ -10,7 +10,7 @@
 @interface ASResultsManager : NSObject
 + (instancetype)sharedMaperManager;
 
-- (void)saveToCoreDataPlayerName:(NSString *)name result:(int)score;
+- (void)saveToCoreDataPlayerName:(NSString *)name result:(NSInteger)score;
 - (NSArray *)getResultsFromCoreData;
 
 @end

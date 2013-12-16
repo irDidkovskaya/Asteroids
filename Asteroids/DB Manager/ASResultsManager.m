@@ -27,7 +27,7 @@
     return sharedObject_;
 }
 
-- (void)saveToCoreDataPlayerName:(NSString *)name result:(int)score
+- (void)saveToCoreDataPlayerName:(NSString *)name result:(NSInteger)score
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity =
@@ -40,7 +40,7 @@
                    insertNewObjectForEntityForName:@"Result"
                    inManagedObjectContext:[ASDBManager sharedManager].mainManagedObjectContext];
         result.playerName = name;
-    result.score = [NSNumber numberWithInt:score];
+    result.score = [NSNumber numberWithInteger:score];
     [[ASDBManager sharedManager] saveContext];
 
 }

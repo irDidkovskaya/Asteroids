@@ -12,22 +12,11 @@
 
 @implementation ASCAAsteroid
 
-
-
 - (id)initWithLayer:(id)layer {
     self = [super initWithLayer:layer];
     
-//    self.bounds = CGRectMake(0, 0, 50, 50);
-//    self.position = CGPointMake(10, 10);
-//    self.cornerRadius = 100;
-//    self.borderColor = [UIColor redColor].CGColor;
-//    self.borderWidth = 1.5;
-//    self.backgroundColor = [UIColor grayColor].CGColor;
-    
     return self;
 }
-
-
 
 - (NSArray *)randomNumbers:(NSArray *)array
 {
@@ -54,7 +43,6 @@
 - (void)drawInContext:(CGContextRef)theContext
 {
     [super drawInContext:theContext];
-//    NSLog(@"corners = %d", self.corners);
     
     float widthAst = self.bounds.size.width;
     float heightAst = self.bounds.size.height;
@@ -74,7 +62,7 @@
     
     CGPoint points[8] = {};
     
-    NSArray *sorted = [self randomNumbers:arr];//[self sortArray:array];
+    NSArray *sorted = [self randomNumbers:arr];
     
     
     for (int i = 0; i < sorted.count; i++) {
@@ -82,7 +70,6 @@
         points[i] = [arr[[sorted[i] integerValue]] CGPointValue];
     }
     
-
     CGMutablePathRef thePath = CGPathCreateMutable();
     
     CGPathAddLines(thePath, NULL, points, self.corners);
@@ -95,7 +82,7 @@
     CGContextSetFillColorWithColor(theContext, [UIColor redColor].CGColor);
     CGContextFillPath(theContext);
     CFRelease(thePath);
-
+    
 }
 
 
