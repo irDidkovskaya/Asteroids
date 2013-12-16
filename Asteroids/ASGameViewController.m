@@ -10,21 +10,19 @@
 #import "ASCAAsteroid.h"
 #import "ASSpaceship.h"
 #import "SACABullet.h"
-#import "ASSpaceShipControllView.h"
-#import "ASControllButton.h"
 #import "JoyStickView.h"
 #import "ASResultsManager.h"
 
 @interface ASGameViewController () <UIAlertViewDelegate>
 {
-    CADisplayLink *timer;
+//    CADisplayLink *timer;
     NSTimer *moveSpaceshipTimer;
     NSTimer *scoreTimer;
     NSTimer *addAsteroidsTimer;
+    NSTimer *colisionChecker;
     NSInteger score;
 }
 @property (nonatomic, strong) IBOutlet ASSpaceship *spaceship;
-@property (nonatomic, strong) IBOutlet ASSpaceShipControllView *spaceShipControllView;
 @property (nonatomic, strong) IBOutlet UIButton *attacButton;
 @property (nonatomic, strong) IBOutlet UIButton *returnToGameBtn;
 @property (nonatomic, strong) IBOutlet JoyStickView *joyStickView;
@@ -55,20 +53,25 @@
 {
     [super viewDidAppear:animated];
     
-    
     score = 0;
-    addAsteroidsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(addAsteroidsTimer) userInfo:nil repeats:YES];
     
-    timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(checkForCollisions)];
-    timer.frameInterval = 2;
-    [timer addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+//    timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(checkForCollisions)];
+//    timer.frameInterval = 2;
+//    [timer addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+
+    colisionChecker = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkForCollisions) userInfo:nil repeats:YES];
     
     [self addAsteroids:1 fromPoint:CGPointMake(0, 0)];
     
+    [self runTimers];
     
-    
+}
+
+- (void)runTimers
+{
+    addAsteroidsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(addAsteroidsTimer) userInfo:nil repeats:YES];
     scoreTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateScore) userInfo:nil repeats:YES];
-    
 }
 
 - (void)updateScore
@@ -291,8 +294,9 @@
 {
     SACABullet *bullet = [[SACABullet alloc] initWithLayer:[CALayer layer]];
     
-    bullet.position = CGPointMake(self.spaceship.frame.size.width+self.spaceship.frame.origin.x, self.spaceship.frame.size.height/2+self.spaceship.frame.origin.y);
+    bullet.position = CGPointMake(-10, -10);
     bullet.opacity = 0;
+    bullet.hidden = NO;
     [self.view.layer addSublayer:bullet];
     
     
@@ -300,75 +304,12 @@
     [animation setValue:@"bulletAnumation" forKey:@"tag"];
     animation.delegate = self;
     animation.duration = 2;
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(500,bullet.position.y)];
+    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.spaceship.frame.size.width+self.spaceship.frame.origin.x, self.spaceship.frame.size.height/2+self.spaceship.frame.origin.y)];
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(500,self.spaceship.frame.size.height/2+self.spaceship.frame.origin.y)];
     [animation setValue:bullet forKey:@"animationLayer"];
     [bullet addAnimation:animation forKey:@"bulletAnumation"];
     [self.bullets addObject:bullet];
 }
-
-
-//- (void)startMoveSpaceShip:(id)sender
-//{
-//    moveSpaceshipTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(startTimer:) userInfo:sender repeats:YES];
-//    [self moveSpaceship:sender];
-//
-//}
-//
-//- (void)moveSpaceship:(ASControllButton *)btn
-//{
-//    CGRect rectSpaceship = self.spaceship.frame;
-//
-//    switch (btn.buttonDirection) {
-//        case kASButtonDirectionTop:
-//        {
-//            if (rectSpaceship.origin.y > 0)
-//            {
-//                rectSpaceship.origin.y -=10;
-//            }
-//
-//        }
-//            break;
-//        case kASButtonDirectionBottom:
-//        {
-//            if (rectSpaceship.origin.y < self.view.frame.size.width-self.spaceship.frame.size.height)
-//            {
-//                rectSpaceship.origin.y +=10;
-//            }
-//        }
-//            break;
-//        case kASButtonDirectionLeft:
-//        {
-//            if (rectSpaceship.origin.x > 0)
-//            {
-//                rectSpaceship.origin.x -=10;
-//            }
-//        }
-//
-//            break;
-//        case kASButtonDirectionRight:
-//        {
-//            if (rectSpaceship.origin.x < self.view.frame.size.height - self.spaceship.frame.size.width)
-//            {
-//                rectSpaceship.origin.x +=10;
-//            }
-//        }
-//
-//            break;
-//
-//        default:
-//            break;
-//    }
-//
-//    self.spaceship.frame = rectSpaceship;
-//}
-//
-//- (void)startTimer:(NSTimer *)spaceshipTimer
-//{
-//    ASControllButton *btn = [spaceshipTimer userInfo];
-//
-//    [self moveSpaceship:btn];
-//
-//}
 
 
 - (void)endMoveSpaceShip:(id)sender
@@ -391,7 +332,7 @@
     if ([tag isEqualToString:@"bulletAnumation"]) {
         
         CALayer *layer1 = [anim valueForKey:@"animationLayer"];
-        
+         layer1.hidden = YES;
         [self.bullets removeObject:layer1];
         [layer1 removeFromSuperlayer];
         
@@ -405,7 +346,6 @@
     
 }
 
-
 - (void)animationDidStart:(CAAnimation *)anim {
     NSString *tag = [anim valueForKey:@"tag"];
     
@@ -413,6 +353,7 @@
         
         CALayer *layer1 = [anim valueForKey:@"animationLayer"];
         layer1.opacity = 1;
+        layer1.hidden = NO;
         
         //        [ball removeAnimationForKey:@"drop"];
     } else if ([tag isEqualToString:@"asteroidAnumation"]){
@@ -445,13 +386,11 @@
     
     UIView *viewSpaceshipArea = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.height - self.spaceship.frame.size.width, self.view.frame.size.width - self.spaceship.frame.size.height)];
     
-    
     CGPoint newpos = self.spaceship.frame.origin;
     newpos.x = point.x + newpos.x;
     newpos.y = point.y + newpos.y;
     if (![viewSpaceshipArea pointInside:newpos withEvent:nil]) return;
     
-    NSLog(@"pointInside = %@", NSStringFromCGPoint(newpos));
     CGRect fr = self.spaceship.frame;
     fr.origin = newpos;
     self.spaceship.frame = fr;
@@ -485,7 +424,7 @@
     self.joyStickView.userInteractionEnabled = YES;
     self.attacButton.enabled = YES;
     [self resumeAnimation];
-    addAsteroidsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(addAsteroidsTimer) userInfo:nil repeats:YES];
+    [self runTimers];
 }
 
 - (IBAction)showMenu:(id)sender

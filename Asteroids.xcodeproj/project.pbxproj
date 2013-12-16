@@ -25,8 +25,6 @@
 		72D55AA0185B571500FB940B /* ASGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D55A9F185B571500FB940B /* ASGameViewController.m */; };
 		72D55AA3185B607100FB940B /* ASCAAsteroid.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D55AA2185B607100FB940B /* ASCAAsteroid.m */; };
 		72D55AA6185C5AC000FB940B /* SACABullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D55AA5185C5AC000FB940B /* SACABullet.m */; };
-		72D55AA9185E39CE00FB940B /* ASSpaceShipControllView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D55AA8185E39CE00FB940B /* ASSpaceShipControllView.m */; };
-		72D55AAF185E3ABB00FB940B /* ASControllButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D55AAE185E3ABB00FB940B /* ASControllButton.m */; };
 		72D55AB2185E7B5600FB940B /* JoyStickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D55AB1185E7B5600FB940B /* JoyStickView.m */; };
 		72D55AB7185E7CD800FB940B /* stick_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 72D55AB4185E7CD800FB940B /* stick_base.png */; };
 		72D55AB8185E7CD800FB940B /* stick_hold.png in Resources */ = {isa = PBXBuildFile; fileRef = 72D55AB5185E7CD800FB940B /* stick_hold.png */; };
@@ -77,10 +75,6 @@
 		72D55AA2185B607100FB940B /* ASCAAsteroid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASCAAsteroid.m; path = Views/ASCAAsteroid.m; sourceTree = "<group>"; };
 		72D55AA4185C5AC000FB940B /* SACABullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SACABullet.h; path = Views/SACABullet.h; sourceTree = "<group>"; };
 		72D55AA5185C5AC000FB940B /* SACABullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SACABullet.m; path = Views/SACABullet.m; sourceTree = "<group>"; };
-		72D55AA7185E39CE00FB940B /* ASSpaceShipControllView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSpaceShipControllView.h; path = Views/ASSpaceShipControllView.h; sourceTree = "<group>"; };
-		72D55AA8185E39CE00FB940B /* ASSpaceShipControllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSpaceShipControllView.m; path = Views/ASSpaceShipControllView.m; sourceTree = "<group>"; };
-		72D55AAD185E3ABB00FB940B /* ASControllButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASControllButton.h; path = Views/ASControllButton.h; sourceTree = "<group>"; };
-		72D55AAE185E3ABB00FB940B /* ASControllButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASControllButton.m; path = Views/ASControllButton.m; sourceTree = "<group>"; };
 		72D55AB0185E7B5600FB940B /* JoyStickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JoyStickView.h; path = Views/JoyStickView.h; sourceTree = "<group>"; };
 		72D55AB1185E7B5600FB940B /* JoyStickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JoyStickView.m; path = Views/JoyStickView.m; sourceTree = "<group>"; };
 		72D55AB4185E7CD800FB940B /* stick_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stick_base.png; path = images/stick_base.png; sourceTree = "<group>"; };
@@ -216,10 +210,6 @@
 				72D55A96185B496400FB940B /* ASSpaceship.m */,
 				72D55AA1185B607100FB940B /* ASCAAsteroid.h */,
 				72D55AA2185B607100FB940B /* ASCAAsteroid.m */,
-				72D55AA7185E39CE00FB940B /* ASSpaceShipControllView.h */,
-				72D55AA8185E39CE00FB940B /* ASSpaceShipControllView.m */,
-				72D55AAD185E3ABB00FB940B /* ASControllButton.h */,
-				72D55AAE185E3ABB00FB940B /* ASControllButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -357,14 +347,12 @@
 			files = (
 				72D55ABC185F275300FB940B /* ASBestResutlsViewController.m in Sources */,
 				72D55AB2185E7B5600FB940B /* JoyStickView.m in Sources */,
-				72D55AA9185E39CE00FB940B /* ASSpaceShipControllView.m in Sources */,
 				72D55AD2185F3E6900FB940B /* ASResultsManager.m in Sources */,
 				72D55AA3185B607100FB940B /* ASCAAsteroid.m in Sources */,
 				72D55AC4185F28A100FB940B /* ASDBManager.m in Sources */,
 				72D55AC0185F27D600FB940B /* Asteroids.xcdatamodeld in Sources */,
 				72D55AA6185C5AC000FB940B /* SACABullet.m in Sources */,
 				72D55A97185B496400FB940B /* ASSpaceship.m in Sources */,
-				72D55AAF185E3ABB00FB940B /* ASControllButton.m in Sources */,
 				72D55A73185B469000FB940B /* ViewController.m in Sources */,
 				72D55AC9185F2A3900FB940B /* Result.m in Sources */,
 				72D55A6D185B469000FB940B /* AppDelegate.m in Sources */,

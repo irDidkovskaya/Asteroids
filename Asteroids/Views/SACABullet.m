@@ -18,7 +18,7 @@
         self.cornerRadius = 2;
     //    self.borderColor = [UIColor redColor].CGColor;
     //    self.borderWidth = 1.5;
-        self.backgroundColor = [UIColor grayColor].CGColor;
+        self.backgroundColor = [UIColor whiteColor].CGColor;
     
     return self;
 }
